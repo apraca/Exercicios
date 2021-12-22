@@ -1,6 +1,6 @@
 package br.com.bootcamp.aula3;
 
-public class Pessoa {
+public class Pessoa implements Precedente<Pessoa> {
     String nome;
     String cpf;
 
@@ -24,4 +24,15 @@ public class Pessoa {
     public void setCpf(String cpf) {
         this.cpf = cpf;
     }
+
+    @Override
+    public int precedeA(Pessoa pessoa) {
+        return this.nome.compareTo(pessoa.nome);
+    }
+
+    @Override
+    public String toString(){
+        return "CPF: " + cpf + ", Nome:" + nome;
+    }
+
 }

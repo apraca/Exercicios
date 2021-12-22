@@ -1,11 +1,22 @@
 package br.com.bootcamp.aula3;
 
-import java.util.List;
+
 
 public class SortUtil {
 
-    public  static <T> void sort(List<Precedente<T>> arr[]){
+    public  static <T> void sort(Precedente<T> arr[]){
 
-
+        for(int i=0;i<arr.length;i++)
+        {
+            for(int j=0;j<arr.length-1;j++)
+            {
+                if(arr[j].precedeA((T)arr[j+1])>0)
+                {
+                    Precedente<T> aux = arr[j];
+                    arr[j]=arr[j+1];
+                    arr[j+1]=aux;
+                }
+            }
+        }
     }
 }
